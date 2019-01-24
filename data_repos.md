@@ -16,6 +16,8 @@ UNdata | Anthropogenic variables | http://data.un.org/ | Direct download from th
 WorldClim | World climatic variables | http://www.worldclim.org | Extracted by raster package
 
 # Other
+
+Dataset  | Description | Link | Extra details
 ------------- | ------------- | ------------- | -------------
 DRYAD | Miscellaneous information about everything | http://datadryad.org/ | Direct download from the web
 
