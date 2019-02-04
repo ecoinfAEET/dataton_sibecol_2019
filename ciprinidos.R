@@ -3,13 +3,10 @@
 library(rgbif)
 spain_code <- isocodes[grep("Spain", isocodes$name), "code"]
 portugal_code <- isocodes[grep("Portugal", isocodes$name), "code"]
-apidae_key <- name_backbone(name="Cyprinid", rank = "family")$usageKey
-andrenidae_key <- name_backbone(name="Thricoptera", rank = "order")$usageKey
-halictidae_key <- name_backbone(name="Halictidae", rank = "family")$usageKey
-colletidae_key <- name_backbone(name="Colletidae", rank = "family")$usageKey
-megachilidae_key <- name_backbone(name="Megachilidae", rank = "family")$usageKey
-stenotritidae_key <- name_backbone(name="Stenotritidae", rank = "family")$usageKey
-melittidae_key <- name_backbone(name="Melittidae", rank = "family")$usageKey
+cyprinid_key <- name_backbone(name="Cyprinidae", rank = "family")$usageKey
+trichoptera_key <- name_backbone(name="Trichoptera", rank = "order")$usageKey
+ephemeroptera_key <- name_backbone(name="Ephemeroptera", rank = "order")$usageKey
+plecoptera_key <- name_backbone(name="Plecoptera", rank = "order")$usageKey
 
 #Second we fetch data
 dat <- data.frame(name = NA, decimalLatitude = NA,
@@ -17,10 +14,9 @@ dat <- data.frame(name = NA, decimalLatitude = NA,
                   family = NA, genus = NA, species = NA,
                   year = NA, month = NA, day = NA, recordedBy = NA,
                   identifiedBy = NA, sex = NA)
-for(i in c(apidae_key, andrenidae_key,
-           halictidae_key, colletidae_key,
-           megachilidae_key,
-           melittidae_key)){
+for(i in c(cyprinid_key, trichoptera_key,
+           ephemeroptera_key, 
+           plecoptera_key)){
     temp <- occ_search(taxonKey= i,
                        return='data',
                        hasCoordinate=TRUE,
