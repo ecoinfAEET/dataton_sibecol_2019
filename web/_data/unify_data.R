@@ -4,12 +4,16 @@
 
 gh <- read.csv("web/_data/grasshoppers.csv")
 head(gh)
+gh$taxa <- "ortoptera"
 
 qp <- read.csv("web/_data/data_chiroptera.csv")
 head(qp)
+qp$taxa <- "chiroptera"
 
 bf <- read.csv("web/_data/lepidoptera.csv", sep = ";")
 head(bf)
+bf$taxa <- "lepidoptera"
+
 colnames(bf) <- c("species",
                   "family",
                   "decimalLatitude",
@@ -19,7 +23,8 @@ colnames(bf) <- c("species",
 to_select <- c("species",
                "family",
                "decimalLatitude",
-               "decimalLongitude")
+               "decimalLongitude",
+               "taxa")
 
 temp <- rbind(gh, qp)
 data <- rbind(temp[,to_select],bf[,to_select])

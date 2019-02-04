@@ -28,7 +28,7 @@ dat$content <- paste("<b>", dat$species, "</a></b>", "<br/>",
   dat$family, "<br/>", sep = "")
 pal <- colorFactor(
   palette = "Spectral",
-  domain = dat$family
+  domain = dat$taxa
 ) #maybe check family NA?
 map <- leaflet(dat)
 map1.5 <- addTiles(map)
@@ -36,10 +36,10 @@ map2 <- addCircleMarkers(map = map1.5, lng = dat$decimalLongitude,
                    lat = dat$decimalLatitude, 
                    label = ~htmlEscape(species),
                    popup = ~content,
-                   color = ~pal(family),
+                   color = ~pal(taxa),
                    clusterOptions = markerClusterOptions())
 addLegend(map = map2, position = "bottomright", 
-          pal = pal, values = ~unique(dat$family),
+          pal = pal, values = ~unique(dat$taxa),
     title = "taxa",
     opacity = 1)
 ```
