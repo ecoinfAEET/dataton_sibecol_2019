@@ -20,6 +20,30 @@ Row {data-height=800, data-padding=50}
 
 ### Iberian biodiversity ...
 
+```{r map occurrence, echo=FALSE, message=FALSE, warning=FALSE}
+library("leaflet")
+library("htmltools")
+dat <- read.csv(file = "_data/data.csv")
+dat$content <- paste("<b>", dat$species, "</a></b>", "<br/>", 
+  dat$family, "<br/>", paste(dat$day, dat$month, dat$year, sep = "/"), "<br/>", dat$recordedBy, "<br/>", sep = "")
+pal <- colorFactor(
+  palette = "Spectral",
+  domain = dat$family
+) #maybe check family NA?
+map <- leaflet(dat)
+map1.5 <- addTiles(map)
+map2 <- addCircleMarkers(map = map1.5, lng = dat$decimalLongitude, 
+                   lat = dat$decimalLatitude, 
+                   label = ~htmlEscape(species),
+                   popup = ~content,
+                   color = ~pal(family),
+                   clusterOptions = markerClusterOptions())
+addLegend(map = map2, position = "bottomright", 
+          pal = pal, values = ~unique(dat$family),
+    title = "taxa",
+    opacity = 1)
+```
+
 
 
 Row {data-height=200}
