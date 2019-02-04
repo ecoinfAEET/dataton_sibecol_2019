@@ -25,7 +25,7 @@ library("leaflet")
 library("htmltools")
 dat <- read.csv(file = "_data/data.csv")
 dat$content <- paste("<b>", dat$species, "</a></b>", "<br/>", 
-  dat$family, "<br/>", paste(dat$day, dat$month, dat$year, sep = "/"), "<br/>", dat$recordedBy, "<br/>", sep = "")
+  dat$family, "<br/>", sep = "")
 pal <- colorFactor(
   palette = "Spectral",
   domain = dat$family
