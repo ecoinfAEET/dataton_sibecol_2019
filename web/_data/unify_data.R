@@ -35,4 +35,4 @@ dim(data)
 
 #save on data.csv
 
-write.csv(gh, "web/_data/data.csv")
+write.csv(data, "web/_data/data.csv")

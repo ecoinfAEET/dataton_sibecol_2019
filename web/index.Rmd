@@ -24,8 +24,9 @@ Row {data-height=800, data-padding=50}
 library("leaflet")
 library("htmltools")
 dat <- read.csv(file = "_data/data.csv")
+#head(dat)
 dat$content <- paste("<b>", dat$species, "</a></b>", "<br/>", 
-  dat$family, "<br/>", sep = "")
+  dat$taxa, "<br/>", sep = "")
 pal <- colorFactor(
   palette = "Spectral",
   domain = dat$taxa
