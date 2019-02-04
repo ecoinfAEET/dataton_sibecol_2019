@@ -18,7 +18,8 @@ colnames(bf) <- c("species",
                   "family",
                   "decimalLatitude",
                   "decimalLongitude",
-                  "datetime")
+                  "datetime",
+                  "taxa")
 
 to_select <- c("species",
                "family",
@@ -28,6 +29,7 @@ to_select <- c("species",
 
 temp <- rbind(gh, qp)
 data <- rbind(temp[,to_select],bf[,to_select])
+head(temp)
 head(data)
 dim(data)
 
