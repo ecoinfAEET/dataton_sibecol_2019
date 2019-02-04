@@ -1,0 +1,31 @@
+---
+title: "SIBECOL Dataton"
+output: 
+  flexdashboard::flex_dashboard:
+    social: menu [ "twitter", "facebook"]
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(knitr)
+# logo: logo.png #48 pixels
+# favicon: favicon.png
+```
+
+Output {data-orientation=rows}
+=========================================
+
+Row {data-height=800, data-padding=50}
+-------------------------------------
+
+### Iberian biodiversity ...
+
+
+
+Row {data-height=200}
+-------------------------------------
+
+### What's this?
+
+This is the output of the first EcoInf dataton!
+

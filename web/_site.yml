@@ -1,0 +1,6 @@
+name: "dataton"                                  
+output_dir: "."
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
