@@ -21,6 +21,10 @@ colnames(bf) <- c("species",
                   "datetime",
                   "taxa")
 
+sl <- read.csv("web/_data/Tamarix_Retama_Chamaerops.csv")
+head(sl)
+sl$taxa <- "scrubland"
+
 to_select <- c("species",
                "family",
                "decimalLatitude",
@@ -28,7 +32,8 @@ to_select <- c("species",
                "taxa")
 
 temp <- rbind(gh, qp)
-data <- rbind(temp[,to_select],bf[,to_select])
+temp2 <- rbind(temp[,to_select],bf[,to_select])
+data <- rbind(temp2, sl[,to_select])
 head(temp)
 head(data)
 dim(data)
